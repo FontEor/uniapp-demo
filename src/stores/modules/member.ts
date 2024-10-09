@@ -7,17 +7,14 @@ export const useMemberStore = defineStore(
   () => {
     // 会员信息
     const profile = ref<any>()
-
     // 保存会员信息，登录时使用
     const setProfile = (val: any) => {
       profile.value = val
     }
-
     // 清理会员信息，退出时使用
     const clearProfile = () => {
       profile.value = undefined
     }
-
     // 记得 return
     return {
       profile,
@@ -25,7 +22,6 @@ export const useMemberStore = defineStore(
       clearProfile,
     }
   },
-  // TODO: 持久化
   {
     //网页端实现持久化，但是小程序端不行
     //persist: true,
