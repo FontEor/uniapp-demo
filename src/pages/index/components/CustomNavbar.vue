@@ -1,9 +1,5 @@
-<script setup lang="ts">
-//
-</script>
-
 <template>
-  <view class="navbar">
+  <view class="navbar" :style="{ paddingTop: safeAreaInsets?.top + 'px' }">
     <!-- logo文字 -->
     <view class="logo">
       <image class="logo-image" src="@/static/images/logo.png"></image>
@@ -16,6 +12,11 @@
     </view>
   </view>
 </template>
+
+<script setup lang="ts">
+// 获取屏幕边界到安全区域距离
+const { safeAreaInsets } = uni.getSystemInfoSync()
+</script>
 
 <style lang="scss">
 /* 自定义导航条 */
