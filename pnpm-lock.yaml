@@ -85,7 +85,7 @@ importers:
         specifier: 3.0.0-alpha-3081220230802001
         version: 3.0.0-alpha-3081220230802001(postcss@8.4.47)(vite@4.4.9(@types/node@18.11.10)(sass@1.79.4)(terser@5.16.0))(vue@3.3.4)
       '@rushstack/eslint-patch':
-        specifier: ^1.1.4
+        specifier: ^1.2.0
         version: 1.2.0
       '@types/node':
         specifier: ^18.11.9
@@ -100,7 +100,7 @@ importers:
         specifier: ^7.0.0
         version: 7.0.0(eslint@8.28.0)(prettier@2.8.0)
       '@vue/eslint-config-typescript':
-        specifier: ^11.0.0
+        specifier: ^11.0.2
         version: 11.0.2(eslint-plugin-vue@9.8.0(eslint@8.28.0))(eslint@8.28.0)(typescript@5.1.6)
       '@vue/runtime-core':
         specifier: ^3.2.45
@@ -109,22 +109,22 @@ importers:
         specifier: ^0.4.0
         version: 0.4.0
       eslint:
-        specifier: ^8.22.0
+        specifier: ^8.28.0
         version: 8.28.0
       eslint-plugin-vue:
-        specifier: ^9.3.0
+        specifier: ^9.8.0
         version: 9.8.0(eslint@8.28.0)
       husky:
         specifier: ^8.0.0
         version: 8.0.2
       lint-staged:
-        specifier: ^13.0.3
+        specifier: ^13.0.4
         version: 13.0.4
       miniprogram-api-typings:
         specifier: ^3.12.0
         version: 3.12.3
       prettier:
-        specifier: ^2.7.1
+        specifier: ^2.8.0
         version: 2.8.0
       sass:
         specifier: ^1.79.4
@@ -6226,24 +6226,24 @@ snapshots:
 
   '@types/babel__core@7.20.0':
     dependencies:
-      '@babel/parser': 7.22.10
-      '@babel/types': 7.22.10
+      '@babel/parser': 7.25.7
+      '@babel/types': 7.25.7
       '@types/babel__generator': 7.6.4
       '@types/babel__template': 7.4.1
       '@types/babel__traverse': 7.18.5
 
   '@types/babel__generator@7.6.4':
     dependencies:
-      '@babel/types': 7.22.10
+      '@babel/types': 7.25.7
 
   '@types/babel__template@7.4.1':
     dependencies:
-      '@babel/parser': 7.22.10
-      '@babel/types': 7.22.10
+      '@babel/parser': 7.25.7
+      '@babel/types': 7.25.7
 
   '@types/babel__traverse@7.18.5':
     dependencies:
-      '@babel/types': 7.22.10
+      '@babel/types': 7.25.7
 
   '@types/cookie@0.4.1': {}
 
@@ -6368,7 +6368,7 @@ snapshots:
     dependencies:
       '@dcloudio/types': 3.3.3
       typescript: 5.1.6
-      vue3: vue@3.3.4
+      vue3: vue@3.5.11(typescript@5.1.6)
 
   '@uni-helper/uni-ui-types@0.5.15(@uni-helper/uni-app-types@0.5.8(typescript@5.1.6))(typescript@5.1.6)':
     dependencies:
@@ -6762,7 +6762,7 @@ snapshots:
   babel-plugin-jest-hoist@27.5.1:
     dependencies:
       '@babel/template': 7.22.5
-      '@babel/types': 7.22.10
+      '@babel/types': 7.25.7
       '@types/babel__core': 7.20.0
       '@types/babel__traverse': 7.18.5
 
@@ -7687,7 +7687,7 @@ snapshots:
   istanbul-lib-instrument@5.2.1:
     dependencies:
       '@babel/core': 7.22.10
-      '@babel/parser': 7.22.10
+      '@babel/parser': 7.25.7
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.2.0
       semver: 6.3.1
@@ -8003,7 +8003,7 @@ snapshots:
       '@babel/generator': 7.22.10
       '@babel/plugin-syntax-typescript': 7.20.0(@babel/core@7.22.10)
       '@babel/traverse': 7.22.10
-      '@babel/types': 7.22.10
+      '@babel/types': 7.25.7
       '@jest/transform': 27.5.1
       '@jest/types': 27.5.1
       '@types/babel__traverse': 7.18.5
