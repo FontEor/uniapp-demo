@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import { getHomeGoodsGuessLikeAPI } from '@/services/home';
-import type { PageParams, PageResult } from '@/types/global';
-import type { GuessItem } from '@/types/home';
+import { onMounted, ref } from 'vue'
+import { getHomeGoodsGuessLikeAPI } from '@/services/home'
+import type { PageParams, PageResult } from '@/types/global'
+import type { GuessItem } from '@/types/home'
 
 const guessList = ref<GuessItem[]>([])
-const pageParams : Required<PageParams> = {
+const pageParams: Required<PageParams> = {
   page: 1,
-  pageSize:10
+  pageSize: 10,
 }
 //请求结束的标记
 const finish = ref(false)
 
 const getHomeGoodsGuessLikeData = async () => {
   if (finish.value === true) {
-    return uni.showToast({ icon:'none',title:'暂无更多数据~' })
+    return uni.showToast({ icon: 'none', title: '暂无更多数据~' })
   }
   const res = await getHomeGoodsGuessLikeAPI(pageParams)
   //guessList.value = res.result.items
@@ -22,16 +22,22 @@ const getHomeGoodsGuessLikeData = async () => {
   if (pageParams.page < res.result.pages) {
     pageParams.page++
   } else {
-    finish.value=true
+    finish.value = true
   }
+}
 
+const resetData = () => {
+  pageParams.page = 1
+  guessList.value = []
+  finish.value = false
 }
 
 onMounted(() => {
   getHomeGoodsGuessLikeData()
 })
 defineExpose({
-  getMore : getHomeGoodsGuessLikeData
+  resetData,
+  getMore: getHomeGoodsGuessLikeData,
 })
 </script>
 
@@ -47,19 +53,15 @@ defineExpose({
       :key="item.id"
       :url="`/pages/goods/goods?id=4007498`"
     >
-      <image
-        class="image"
-        mode="aspectFill"
-        :src="item.picture"
-      ></image>
+      <image class="image" mode="aspectFill" :src="item.picture"></image>
       <view class="name"> {{ item.name }} </view>
       <view class="price">
         <text class="small">¥</text>
-        <text>{{item.price}}</text>
+        <text>{{ item.price }}</text>
       </view>
     </navigator>
   </view>
-  <view class="loading-text"> {{ finish?'暂无更多数据~':'正在加载...' }} </view>
+  <view class="loading-text"> {{ finish ? '暂无更多数据~' : '正在加载...' }} </view>
 </template>
 
 <style lang="scss">
