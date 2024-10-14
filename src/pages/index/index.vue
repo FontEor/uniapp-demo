@@ -5,7 +5,7 @@
     @refresherrefresh="handleRefresh"
     scroll-y
     class="scroll-view"
-    @scrolltolower="handleScrollToLower"
+    @scrolltolower="handleScrolltolower"
     :refresher-triggered="isTriggered"
   >
     <!-- 骨架屏 -->
@@ -32,10 +32,12 @@ import CategoryPanel from './components/CategoryPanel.vue'
 import HotPanel from './components/HotPanel.vue'
 import type { XtxGuessInstance } from '@/types/component'
 import PageSkeleton from './components/PageSkeleton.vue'
+import { useGuess } from '@/composables'
 const bannerList = ref<BannerItem[]>([])
 const categoryList = ref<CategoryItem[]>([])
 const hotList = ref<HotItem[]>([])
-const guessRef = ref<XtxGuessInstance>()
+const { guessRef, handleScrolltolower } = useGuess()
+
 const isTriggered = ref(false)
 const isLoading = ref(false)
 
@@ -68,10 +70,12 @@ onLoad(async () => {
   await Promise.all([getHomeBannerData(), getHomeCategoryData(), getHomeHotData()])
   isLoading.value = false
 })
-// 滚动触底自动触发
-const handleScrollToLower = () => {
-  guessRef.value?.getMore()
-}
+
+// const guessRef = ref<XtxGuessInstance>()
+// // 滚动触底自动触发
+// const handleScrolltolower = () => {
+//   guessRef.value?.getMore()
+// }
 </script>
 <style lang="scss">
 page {
