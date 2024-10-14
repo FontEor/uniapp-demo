@@ -24,7 +24,7 @@ const { guessRef, handleScrolltolower } = useGuess()
     <view class="profile" :style="{ paddingTop: safeAreaInsets!.top + 'px' }">
       <!-- 情况1：已登录 -->
       <view class="overview" v-if="useStore.profile">
-        <navigator url="/pagesMember/profile/profile" hover-class="none">
+        <navigator url="/pagesMember/profile/index" hover-class="none">
           <image class="avatar" mode="aspectFill" :src="useStore.profile.avatar"></image>
         </navigator>
         <view class="meta">
