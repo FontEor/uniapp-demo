@@ -75,9 +75,9 @@ const onRegionChange: UniHelper.RegionPickerOnChange = (ev) => {
   Object.assign(form.value, { provinceCode, cityCode, countyCode })
 }
 
-// 收集是否默认收货地址 UniHelper.SwitchOnChange
-const onSwitchChange: UniHelper.SwitchOnChange = (event) => {
-  form.value.isDefault = event.detail.value ? 1 : 0
+// 收集是否默认收货地址
+const onSwitchChange: UniHelper.SwitchOnChange = (ev) => {
+  form.value.isDefault = ev.detail.value ? 1 : 0
 }
 // 提交表单
 const onSubmit = async () => {
