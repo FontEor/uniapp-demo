@@ -112,8 +112,20 @@
 					"path": "profile/index",
 					"style": {
 						"navigationBarTitleText": "个人信息",
-            "navigationStyle": "custom",
-            "navigationBarTextStyle": "white"
+						"navigationStyle": "custom",
+						"navigationBarTextStyle": "white"
+					}
+				},
+				{
+					"path": "address/index",
+					"style": {
+						"navigationBarTitleText": "地址管理"
+					}
+				},
+				{
+					"path": "address-form/index",
+					"style": {
+						"navigationBarTitleText": "address-form"
 					}
 				}
 			]
