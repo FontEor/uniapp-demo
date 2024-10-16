@@ -28,9 +28,10 @@ const loginSuccess = (userInfo: LoginResult) => {
   setTimeout(() => {
     // 页面跳转  跳转到 tabBar 页面只能使用 switchTab 跳转
     //跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面
-    uni.switchTab({ url: '/pages/my/my' })
+    //uni.switchTab({ url: '/pages/my/my' })
     //普通页面用navigateTo
     //uni.navigateTo()
+    uni.navigateBack()
   }, 500)
 }
 
