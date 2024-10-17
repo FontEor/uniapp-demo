@@ -101,12 +101,19 @@ const gotoPayment = () => {
     })
   }
   // 跳转到结算页
-  uni.navigateTo({ url: '/pagesOrder/create/create' })
+  uni.navigateTo({ url: '/pagesOrder/create/index' })
 }
+
+// 获取屏幕边界到安全区域距离
+const { safeAreaInsets } = uni.getSystemInfoSync()
 </script>
 
 <template>
-  <scroll-view scroll-y class="scroll-view">
+  <scroll-view
+    scroll-y
+    class="scroll-view"
+    :style="{ paddingBottom: safeAreaInsets!.bottom + 'px' }"
+  >
     <!-- 已登录: 显示购物车 -->
     <template v-if="memberStore.profile">
       <!-- 购物车列表 -->
