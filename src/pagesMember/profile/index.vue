@@ -26,6 +26,7 @@ const memberStore = useMemberStore()
 // 修改头像
 const onAvatarChange = () => {
   // 调用拍照/选择图片
+  // #ifdef MP-WEIXIN
   uni.chooseMedia({
     // 文件个数
     count: 1,
@@ -35,29 +36,41 @@ const onAvatarChange = () => {
       // 本地路径
       const { tempFilePath } = res.tempFiles[0]
       // 文件上传
-      uni.uploadFile({
-        url: '/member/profile/avatar',
-        name: 'file', // 后端数据字段名
-        filePath: tempFilePath, // 新头像
-        success: (res) => {
-          // 判断状态码是否上传成功
-          if (res.statusCode === 200) {
-            // 提取头像
-            const { avatar } = JSON.parse(res.data).result
-            // 当前页面更新头像
-            profile.value!.avatar = avatar
-            // 更新 Store 头像
-            memberStore.profile!.avatar = avatar
-            uni.showToast({ icon: 'success', title: '更新成功' })
-          } else {
-            uni.showToast({ icon: 'error', title: '出现错误' })
-          }
-        },
-      })
+      uploadFile(tempFilePath)
+    },
+  })
+  // #endif
+  // #ifdef H5 || APP-PLUS
+  uni.chooseImage({
+    count: 1,
+    success: (res) => {
+      const tempFilePath = res.tempFilePaths[0]
+      uploadFile(tempFilePath)
+    },
+  })
+  // #endif
+}
+const uploadFile = (tempFilePath: string) => {
+  uni.uploadFile({
+    url: '/member/profile/avatar',
+    name: 'file', // 后端数据字段名
+    filePath: tempFilePath, // 新头像
+    success: (res) => {
+      // 判断状态码是否上传成功
+      if (res.statusCode === 200) {
+        // 提取头像
+        const { avatar } = JSON.parse(res.data).result
+        // 当前页面更新头像
+        profile.value!.avatar = avatar
+        // 更新 Store 头像
+        memberStore.profile!.avatar = avatar
+        uni.showToast({ icon: 'success', title: '更新成功' })
+      } else {
+        uni.showToast({ icon: 'error', title: '出现错误' })
+      }
     },
   })
 }
-
 // 修改性别
 const onGenderChange: UniHelper.RadioGroupOnChange = (ev) => {
   profile.value.gender = ev.detail.value as Gender

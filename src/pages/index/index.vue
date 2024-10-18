@@ -78,6 +78,10 @@ onLoad(async () => {
 // }
 </script>
 <style lang="scss">
+/* #ifdef APP-PLUS */
+#app,
+/* #endif */
+
 page {
   background-color: #f7f7f7;
   height: 100%;

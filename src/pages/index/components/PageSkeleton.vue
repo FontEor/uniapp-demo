@@ -147,7 +147,14 @@
     </view>
   </view>
 </template>
-<style>
+<style lang="scss">
+// h5端默认开发scoped样式隔离导致基础组件无效，小程序无问题（h5单页应用，微信小程序多页应用）
+/* #ifdef H5 || APP-PLUS */
+@import '@/components/style/XtxSwiper.scss';
+@import '@/pages/index/components/style/CategoryPanel.scss';
+@import '@/pages/index/components/style/HotPanel.scss';
+/* #endif */
+
 .sk-transparent {
   color: transparent !important;
 }
